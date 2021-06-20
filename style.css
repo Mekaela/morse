@@ -1,0 +1,25 @@
+body {
+  background-color: teal;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  margin-top: 10%;
+}
+
+.input {
+  padding: 50px 100px;
+  outline: solid 1px black;
+  background-color: #a2e6e6;
+}
+.input__morse {
+  display: flex;
+}
+.input__text {
+  display: flex;
+}
+
+/*# sourceMappingURL=style.css.map */
