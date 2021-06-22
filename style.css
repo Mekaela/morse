@@ -4,22 +4,46 @@ body {
 
 main {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-family: sans-serif;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 
-.input {
-  padding: 50px 100px;
-  outline: solid 1px black;
-  background-color: #a2e6e6;
+.display {
+  padding: 5% 10%;
+  background-color: #f0efef;
 }
-.input__morse {
+.display__morse {
   display: flex;
 }
-.input__text {
+.display__text {
   display: flex;
+}
+.display__output {
+  margin: 20px;
+  min-height: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+label {
+  font-size: 1.8rem;
+  margin-right: 20px;
+}
+
+.text, .morse {
+  min-height: 25px;
+  min-width: 300px;
+  font-size: 1.8rem;
+}
+
+.output__morse {
+  margin-top: 10px;
+  background-color: white;
+  min-height: 35px;
+  box-shadow: 0px 1px 1px grey;
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

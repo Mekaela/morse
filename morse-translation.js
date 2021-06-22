@@ -9,18 +9,28 @@ class Translator {
     constructor(currentText, currentMorse) {
         this.currentText = currentText;
         this.currentMorse = currentMorse;
+        this.clear();
     }
-    
+
+    clear() {
+        this.textInput = '';
+        this.morseInput = '';
+    }
+
     translateText () {
-        let text = textInput.value;
+        let text = textInput.value.toLowerCase();
+        
         const morseValues = Object.values(alphabet);
         const morseKeys = Object.keys(alphabet);
         let newMorse = "";
         for (let i = 0; i < text.length; i++ ) {
             //find index in morseKeys, return index in morseValues
             let newValue = morseValues[morseKeys.findIndex(keys => keys === text[i])];
+            if (newValue === undefined) {
+                newValue = '';
+            };
             newMorse += newValue + ' ';
-        }
+        };
         text = newMorse;
         this.textInput = text;
     }
@@ -29,21 +39,23 @@ class Translator {
         let morseText = morseInput.value.split(' ');
         const textValues = Object.values(morse);
         const textKeys = Object.keys(morse);
-        // console.log(typeof text); - returns string
         let newText = "";
         for (let i = 0; i < morseText.length; i++ ) {
             //find index in Keys, return index in Values
             let newValue = textValues[textKeys.findIndex(keys => keys === morseText[i])];
+            if (newValue === undefined) {
+                newValue = '';
+            };
             newText += newValue;
-        }
+        };
         morseText = newText;
         this.morseInput = morseText;
-    }
+    };
     
     // to update html text in output area
     updateDisplay() {
-        this.currentMorse.innerText = this.morseInput;
-        this.currentText.innerText = this.textInput;
+        this.currentMorse.innerText = this.morseInput || this.textInput;
+        // this.currentText.innerText = this.textInput;
         
     }
 }

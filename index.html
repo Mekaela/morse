@@ -10,21 +10,24 @@
 <body>
     <!-- Header div navigating to calc project and portfolio -->
     <main>
-        <div class="input">
-            <h1>Morse <-> Text Translator</h1>
-            <div class="input__text">
-                <h2>Enter Text:</h2>
+        <div class="display">
+            <h1>Translate your communications!</h1>
+            <p></p>
+            <!-- would be nice to put a toggle/slider here -->
+            <div class="display__text">
+                <label for=".text">Text:</label>
                 <input type="text" class="text">
             </div>
-            <div class="input__morse">
-                <h2>Enter Morse:</h2>
+            <div class="display__morse">
+                <label for=".morse">Morse:</label>
                 <input type="text" class="morse">
             </div> 
-        </div>
-        <div class="output">
-            <div class="output__text">
-            </div>
-            <div class="output__morse">
+            <div class="display__output">
+                <!-- <div class="output__text">
+                </div> -->
+                <label for=".output__morse">Your translation</label>
+                <div class="output__morse">
+                </div>
             </div>
         </div>
     </main>
