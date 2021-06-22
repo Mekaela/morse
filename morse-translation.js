@@ -1,6 +1,7 @@
-//import _morse
-// import alphabet from _morse;
-// import morse from _morse;
+
+import { alphabet, morse } from "./morse.js";
+// can now use above to console.log(alphabet) etc. note: essential to have type="module" on <script> in html.
+
 
 
 //class with constructor and actions
@@ -10,22 +11,33 @@ class Translator {
         this.currentMorse = currentMorse;
     }
     
-    translateText (letter) {
-        // match letters/morse from _morse.js: key: value pairs, then appends them
-        // if (letter === 'a') {
-        //     this.textInput = 'hello';
-        // }
-        // this.textinput matches (key from _morse.alphabet){
-            //return _morse.value };
-        let text = textInput.nodeValue;
+    translateText () {
+        let text = textInput.value;
+        const morseValues = Object.values(alphabet);
+        const morseKeys = Object.keys(alphabet);
+        let newMorse = "";
+        for (let i = 0; i < text.length; i++ ) {
+            //find index in morseKeys, return index in morseValues
+            let newValue = morseValues[morseKeys.findIndex(keys => keys === text[i])];
+            newMorse += newValue + ' ';
+        }
+        text = newMorse;
         this.textInput = text;
     }
 
     translateMorse () {
-        // match letters/morse from _morse.js: key: value pairs
-        // if (morse === _morse.key) {
-            //return _morse.value };
-        this.morseInput = 'hi there';
+        let morseText = morseInput.value.split(' ');
+        const textValues = Object.values(morse);
+        const textKeys = Object.keys(morse);
+        // console.log(typeof text); - returns string
+        let newText = "";
+        for (let i = 0; i < morseText.length; i++ ) {
+            //find index in Keys, return index in Values
+            let newValue = textValues[textKeys.findIndex(keys => keys === morseText[i])];
+            newText += newValue;
+        }
+        morseText = newText;
+        this.morseInput = morseText;
     }
     
     // to update html text in output area
@@ -46,7 +58,7 @@ const currentText = document.querySelector('.output__text');
 const translator = new Translator (currentText, currentMorse)
 
 textInput.addEventListener('input', letter => {
-    translator.translateText(letter)
+    translator.translateText()
     translator.updateDisplay()
 })
 
